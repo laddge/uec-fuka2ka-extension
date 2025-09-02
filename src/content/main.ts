@@ -11,7 +11,7 @@ let table2: FixedLengthArray<string, 11>[] = []
 let table3: FixedLengthArray<string, 3>[] = []
 
 function parse() {
-  const tables = (parent as any).body.document.querySelectorAll('table')
+  const tables = (document.querySelector('frame[name=body]') as any).contentDocument.querySelectorAll('table')
   table1.credits = tables[1].querySelectorAll('tr')[2].querySelectorAll('td')[1].innerText
   table1.gpasum = tables[1].querySelectorAll('tr')[3].querySelectorAll('td')[1].innerText
   table1.gpa = tables[1].querySelectorAll('tr')[3].querySelectorAll('td')[2].innerText
@@ -26,7 +26,7 @@ function parse() {
 }
 
 function render() {
-  const tables = (parent as any).body.document.querySelectorAll('table')
+  const tables = (document.querySelector('frame[name=body]') as any).contentDocument.querySelectorAll('table')
   tables[1].querySelectorAll('tr')[2].querySelectorAll('td')[1].innerText = table1.credits
   tables[1].querySelectorAll('tr')[3].querySelectorAll('td')[1].innerText = table1.gpasum
   tables[1].querySelectorAll('tr')[3].querySelectorAll('td')[2].innerText = table1.gpa
@@ -45,7 +45,7 @@ function render() {
 }
 
 chrome.runtime.onMessage.addListener((msg) => {
-  if ((parent as any).body.document.querySelector('.title')?.innerText !== '単位修得状況照会') return
+  if ((document.querySelector('frame[name=body]') as any).contentDocument.querySelector('.title')?.innerText !== '単位修得状況照会') return
   const { from, to } = JSON.parse(msg)
   parse()
   
