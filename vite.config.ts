@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 import zip from 'vite-plugin-zip-pack'
 import manifest from './manifest.config'
 import { name, version } from './package.json'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   resolve: {
@@ -13,6 +14,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    tailwindcss(),
     svelte({
       compilerOptions: {
         dev: true,

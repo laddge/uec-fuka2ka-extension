@@ -16,13 +16,6 @@ export default defineManifest({
   },
   content_scripts: [{
     js: ['src/content/main.ts'],
-    matches: ['https://*/*'],
+    matches: ['https://campusweb.office.uec.ac.jp/*'],
   }],
-  permissions: [
-    'sidePanel',
-    'contentSettings',
-  ],
-  side_panel: {
-    default_path: 'src/sidepanel/index.html',
-  },
 })
