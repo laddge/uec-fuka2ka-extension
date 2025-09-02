@@ -1,52 +1,30 @@
-# Svelte + Vite + CRXJS
+# uec-fuka2ka
 
-This template helps you quickly start developing Chrome extensions with Svelte, TypeScript and Vite. It includes the CRXJS Vite plugin for seamless Chrome extension development.
+電通大の成績の不可を可にする拡張機能
 
-## Features
+## 機能・特徴
 
-- Svelte with component syntax
-- TypeScript support
-- Vite build tool
-- CRXJS Vite plugin integration
-- Chrome extension manifest configuration
+- PC版Chrome系、Firefox系ブラウザで動作
+- 成績の評価部分を置換し、それに合わせて修得単位数やGPAを自動計算
+- 科目区分ごとの修得単位数は表記揺れのため一部非対応
 
-## Quick Start
+## 導入方法
+### Chrome系
 
-1. Install dependencies:
+1. [Releases](releases)からダウンロードした`uec-fuka2ka_{version}.zip`を展開
+2. `拡張機能を管理`([chrome://extensions](chrome://extensions))でデベロッパーモードを有効化
+3. `パッケージ化されていない拡張機能を読み込む`から展開したディレクトリを開く
 
-```bash
-npm install
-```
+### Firefox系
 
-2. Start development server:
+1. [Releases](releases)から`uec-fuka2ka_{version}.zip`をダウンロード
+2. アドレスバーに`about:debugging#/runtime/this-firefox`と入力して開く
+3. `一時的なアドオンを読み込む`からzipファイルを開く
 
-```bash
-npm run dev
-```
+## ライセンス
 
-3. Open Chrome and navigate to `chrome://extensions/`, enable "Developer mode", and load the unpacked extension from the `dist` directory.
+[MIT LICENSE](LICENSE)
 
-4. Build for production:
+## 作者
 
-```bash
-npm run build
-```
-
-## Project Structure
-
-- `src/popup/` - Extension popup UI
-- `src/content/` - Content scripts
-- `manifest.config.ts` - Chrome extension manifest configuration
-
-## Chrome Extension Development Notes
-
-- Use `manifest.config.ts` to configure your extension
-- The CRXJS plugin automatically handles manifest generation
-- Content scripts should be placed in `src/content/`
-- Popup UI should be placed in `src/popup/`
-
-## Documentation
-
-- [Svelte Documentation](https://svelte.dev/)
-- [Vite Documentation](https://vitejs.dev/)
-- [CRXJS Documentation](https://crxjs.dev/vite-plugin)
+[Laddge](https://github.com/laddge)
